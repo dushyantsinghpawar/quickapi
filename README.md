@@ -2,7 +2,7 @@
 
 FastAPI + PostgreSQL + Alembic + Auth + ML (Iris) + Streamlit + Docker Compose.
 
-## ✨ Features
+## Features
 - JWT auth (strong password rules + email validation)
 - Items CRUD: public read, protected create/update/delete
 - ML endpoint `/ml/predict` (scikit-learn Iris) with prediction logging to Postgres
@@ -13,7 +13,7 @@ FastAPI + PostgreSQL + Alembic + Auth + ML (Iris) + Streamlit + Docker Compose.
 
 ---
 
-## 🚀 Quickstart (Docker)
+## Quickstart (Docker)
 
 ```bash
 docker compose up -d --build
@@ -54,7 +54,7 @@ curl -s "http://127.0.0.1:8000/ml/predictions?limit=20" \
 
 ---
 
-## 🛠️ Local Development
+## Local Development
 
 ```bash
 conda create -y -n ml python=3.12
@@ -86,7 +86,7 @@ ACCESS_TOKEN_EXPIRE_MINUTES=60
 
 ---
 
-## 🔌 API Overview
+## API Overview
 
 * `GET /health`
 * `POST /auth/register`
@@ -104,7 +104,7 @@ OpenAPI: **/docs** and **/redoc**.
 
 ---
 
-## 🧪 Tests & Linting
+## Tests & Linting
 
 ```bash
 pytest -q
@@ -120,7 +120,7 @@ isort .
 
 ---
 
-## 📦 Project Structure (abridged)
+## Project Structure (abridged)
 
 ```
 quickapi/
@@ -155,7 +155,7 @@ quickapi/
 
 ---
 
-## 🐳 Docker Tips
+## Docker Tips
 
 ```bash
 docker compose ps
@@ -166,16 +166,10 @@ docker compose down -v       # stop + delete DB volume (fresh DB)
 
 ---
 
-## 🩹 Troubleshooting
+## Troubleshooting
 
 * **`python-multipart` error in container** → rebuild image
   `docker compose build --no-cache api && docker compose up -d`
 * **zsh `event not found`** → quote or `--data-urlencode` passwords with `!`
 * **DB connection issues** → ensure `db` service is up and `DATABASE_URL` matches
 * **Migrations mismatch** → `alembic upgrade head`
-
-MD
-
-```
-::contentReference[oaicite:0]{index=0}
-```
