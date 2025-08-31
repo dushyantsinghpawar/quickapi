@@ -1,0 +1,7 @@
+line-length = 100
+target-version = "py312"
+exclude = ["migrations"]
+
+[lint]
+select = ["E","F","I"]   # errors, flakes, import order
+fix = true               # allow auto-fixes when ruff runs locally
