@@ -4,16 +4,14 @@ import requests
 import streamlit as st
 
 st.set_page_config(page_title="QuickAPI UI", page_icon="⚡")
-API_BASE = st.sidebar.text_input(
-    "API base URL", os.getenv("API_BASE", "http://127.0.0.1:8000")
-)
+API_BASE = st.sidebar.text_input("API base URL", os.getenv("API_BASE", "http://127.0.0.1:8000"))
 
 if "token" not in st.session_state:
     st.session_state.token = None
 if "email" not in st.session_state:
     st.session_state.email = None
 
-st.title("⚡ QuickAPI UI")
+st.title("QuickAPI UI")
 
 # ---------- Auth ----------
 with st.expander("Register (first time only)"):
@@ -32,9 +30,7 @@ with st.expander("Register (first time only)"):
                 res.status_code,
                 (
                     res.json()
-                    if res.headers.get("content-type", "").startswith(
-                        "application/json"
-                    )
+                    if res.headers.get("content-type", "").startswith("application/json")
                     else res.text
                 ),
             )
@@ -80,7 +76,7 @@ with col1:
             st.error(e)
 
 # ---------- ML: Iris predict ----------
-st.header("🌸 ML · Iris Prediction")
+st.header("ML · Iris Prediction")
 if not authed:
     st.warning("Login to use ML prediction.")
 else:
@@ -105,9 +101,7 @@ else:
                 res.status_code,
                 (
                     res.json()
-                    if res.headers.get("content-type", "").startswith(
-                        "application/json"
-                    )
+                    if res.headers.get("content-type", "").startswith("application/json")
                     else res.text
                 ),
             )
@@ -115,7 +109,7 @@ else:
             st.error(f"Predict error: {e}")
 
 # ---------- Items ----------
-st.header("📦 Items")
+st.header("Items")
 colA, colB = st.columns(2)
 with colA:
     if st.button("List items"):
@@ -147,9 +141,7 @@ with colB:
                     res.status_code,
                     (
                         res.json()
-                        if res.headers.get("content-type", "").startswith(
-                            "application/json"
-                        )
+                        if res.headers.get("content-type", "").startswith("application/json")
                         else res.text
                     ),
                 )

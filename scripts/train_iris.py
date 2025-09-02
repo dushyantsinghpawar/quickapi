@@ -13,9 +13,7 @@ iris = load_iris()
 X, y = iris.data, iris.target
 Xtr, Xte, ytr, yte = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
 
-pipe = Pipeline(
-    [("scaler", StandardScaler()), ("clf", LogisticRegression(max_iter=200))]
-)
+pipe = Pipeline([("scaler", StandardScaler()), ("clf", LogisticRegression(max_iter=200))])
 pipe.fit(Xtr, ytr)
 acc = accuracy_score(yte, pipe.predict(Xte))
 

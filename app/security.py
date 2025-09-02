@@ -1,5 +1,5 @@
-from datetime import datetime, timedelta, timezone
-from typing import Optional
+# ruff: noqa: B008
+from datetime import UTC, datetime, timedelta
 
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
@@ -26,7 +26,7 @@ def verify_password(p: str, h: str) -> bool:
 def create_access_token(sub: str, expires_minutes: int) -> str:
     to_encode = {
         "sub": sub,
-        "exp": datetime.now(timezone.utc) + timedelta(minutes=expires_minutes),
+        "exp": datetime.now(UTC) + timedelta(minutes=expires_minutes),
     }
     return jwt.encode(to_encode, settings.secret_key, algorithm=settings.algorithm)
 
@@ -40,14 +40,15 @@ def get_current_user(
         headers={"WWW-Authenticate": "Bearer"},
     )
     try:
-        payload = jwt.decode(
-            token, settings.secret_key, algorithms=[settings.algorithm]
-        )
-        email: Optional[str] = payload.get("sub")
+        payload = jwt.decode(token, settings.secret_key, algorithms=[settings.algorithm])
+        email: str | None = payload.get("sub")
         if not email:
             raise cred_exc
-    except JWTError:
-        raise cred_exc
+    # except JWTError:
+    #     raise cred_exc
+    except JWTError as err:
+        raise cred_exc from err
+
     user = db.query(models.User).filter(models.User.email == email).first()
     if not user:
         raise cred_exc
