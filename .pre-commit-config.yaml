@@ -1,18 +1,8 @@
 repos:
-  - repo: https://github.com/psf/black
-    rev: 24.8.0
-    hooks:
-      - id: black
-
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.6.9           # bump is optional but recommended
+    rev: v0.6.9
     hooks:
       - id: ruff
-        args: ["--fix", "--config=ruff.toml"]      # ensure it uses root config
+        args: ["--fix", "--config=ruff.toml"]
       - id: ruff-format
         args: ["--config=ruff.toml"]
-
-  - repo: https://github.com/pycqa/isort
-    rev: 5.13.2
-    hooks:
-      - id: isort

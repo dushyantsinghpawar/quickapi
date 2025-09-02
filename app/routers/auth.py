@@ -5,8 +5,7 @@ from sqlalchemy.orm import Session
 from .. import models, schemas
 from ..config import settings
 from ..db import get_db
-from ..security import (create_access_token, get_current_user, hash_password,
-                        verify_password)
+from ..security import create_access_token, get_current_user, hash_password, verify_password
 from ..utils import normalize_email
 
 router = APIRouter(prefix="/auth", tags=["auth"])

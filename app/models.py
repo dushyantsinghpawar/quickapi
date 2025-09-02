@@ -1,8 +1,17 @@
 # app/models.py
 from __future__ import annotations
 
-from sqlalchemy import (Column, DateTime, Float, ForeignKey, Integer, String,
-                        Text, UniqueConstraint, func)
+from sqlalchemy import (
+    Column,
+    DateTime,
+    Float,
+    ForeignKey,
+    Integer,
+    String,
+    Text,
+    UniqueConstraint,
+    func,
+)
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import relationship
 
