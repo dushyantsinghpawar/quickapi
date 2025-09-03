@@ -2,7 +2,8 @@
 ![CI](https://github.com/dushyantsinghpawar/quickapi/actions/workflows/ci.yml/badge.svg)
 ![Python](https://img.shields.io/badge/python-3.12-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-brightgreen)
-![Docker](https://img.shields.io/badge/docker-compose-included-informational)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 End-to-end starter that bundles **FastAPI + PostgreSQL + Alembic + JWT Auth + ML (Iris) + Streamlit + Docker Compose**.  
 Clean code, documented APIs, prediction logging, and a tiny UI for quick interaction.
@@ -243,3 +244,8 @@ docker compose down -v       # stop + delete DB volume (fresh DB)
 * Enforce unique indexes & strong password policy.
 
 ---
+## License
+
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+
+Copyright (c) 2025 **Dushyant Singh Pawar**
