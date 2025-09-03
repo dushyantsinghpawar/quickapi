@@ -1,4 +1,8 @@
-# quickapi
+# QuickAPI
+![CI](https://github.com/dushyantsinghpawar/quickapi/actions/workflows/ci.yml/badge.svg)
+![Python](https://img.shields.io/badge/python-3.12-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-brightgreen)
+![Docker](https://img.shields.io/badge/docker-compose-included-informational)
 
 End-to-end starter that bundles **FastAPI + PostgreSQL + Alembic + JWT Auth + ML (Iris) + Streamlit + Docker Compose**.  
 Clean code, documented APIs, prediction logging, and a tiny UI for quick interaction.
